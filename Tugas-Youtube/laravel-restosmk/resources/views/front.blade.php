@@ -13,7 +13,18 @@
                 <div class="container-fluid">
                     <a href="/"><img style="width: 300px" src="{{ asset('gambar/logo.png')}}" alt=""></a>
                     <ul class="navbar-nav gap-5 ">
-                        <li class="nav-item">Cart</li>
+
+                        @if (session()->has('cart'))
+                            <li class="nav-item"><a href="{{url('cart')}}"> Cart (
+                                @php
+                                    $count=count(session('cart'));
+                                    echo $count;
+                                @endphp
+                            ) </a> </li>
+                        @else
+                            <li class="nav-item">Cart</li>
+                        @endif
+
 
                         @if (session()->missing('idpelanggan'))
                         <li class="nav-item"><a href="{{url('register')}}">Register</a></li>
@@ -42,8 +53,8 @@
                 @yield('content')
             </div>
         </div>
-        <div>
-            footer
+        <div class="bg-light mt-5">
+            <p class="text-center">@smkrevit.com</p>
         </div>
     </div>
 
