@@ -21,10 +21,10 @@ $router->post('api/register',['uses'=>'LoginController@register']);
 
 $router->post('api/login',['uses'=>'LoginController@login']);
 
-$router->get('kategori',['uses'=>'KategoriController@index']);
 
 $router->group(['prefix'=>'api', 'middleware'=>'auth'] , function() use($router){
-
+    
+    $router->get('kategori',['uses'=>'KategoriController@index']);
     
     $router->get('kategori/{id}',['uses'=>'KategoriController@show']);
     
@@ -45,6 +45,12 @@ $router->group(['prefix'=>'api', 'middleware'=>'auth'] , function() use($router)
     $router->put('pelanggan/{id}',['uses'=>'PelangganController@update']);
     
     $router->post('menu',['uses'=>'MenuController@create']);
-
+    
     $router->get('menu',['uses'=>'MenuController@index']);
+    
+    $router->delete('menu/{id}',['uses'=>'MenuController@destroy']);
+    
+    $router->get('menu/{id}',['uses'=>'MenuController@show']);
+
+    $router->post('menu/{id}',['uses'=>'MenuController@update']);
 });
