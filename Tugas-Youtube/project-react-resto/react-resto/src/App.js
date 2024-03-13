@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Front from './Front/Front';
 import Back from './Back/Back';
+import Login from './Back/Login';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
         <Route path="/" component={Front} exact/>
         <Route path="/home" component={Front} />
         <Route path="/admin" component={Back} />
+        <Route path="/login" component={Login} />
       </Router>
     </div>
   );
